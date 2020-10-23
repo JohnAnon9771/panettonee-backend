@@ -31,7 +31,7 @@ const PaneSchema = new Schema(
 
 // eslint-disable-next-line func-names
 PaneSchema.virtual('thumbnail_url').get(function (this: { thumbnail: string }) {
-  return `http://localhost:3333/files/${this.thumbnail}`;
+  return `https://panettonee-api.herokuapp.com/files/${this.thumbnail}`;
 });
 
 export default model<IPane>('Pane', PaneSchema);
