@@ -27,8 +27,14 @@ app.get('/panettonee/index', async (req, res) => {
   return res.json(results);
 });
 
+app.get('/panettonee/:id', async (req, res) => {
+  const { id } = req.params;
+  const results = await Pane.findById(id);
+  return res.json(results);
+});
+
 app.post('/panettonee', upload.single('thumbnail'), async (req, res) => {
-  const { name, brand, description, calories, price } = req.body;
+  const { name, brand, description, calories, price, weight } = req.body;
   const { filename } = req.file;
 
   const pane = await Pane.create({
@@ -37,6 +43,7 @@ app.post('/panettonee', upload.single('thumbnail'), async (req, res) => {
     description,
     calories,
     price,
+    weight,
     thumbnail: filename,
   });
 

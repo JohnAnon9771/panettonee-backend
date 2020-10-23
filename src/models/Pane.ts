@@ -6,16 +6,18 @@ interface IPane extends Document {
   description: string;
   calories: number;
   price: string;
+  weight: string;
   thumbnail: string;
 }
 
 const PaneSchema = new Schema(
   {
     name: String,
-    description: String,
     brand: String,
+    description: String,
     calories: Number,
     price: String,
+    weight: String,
     thumbnail: String,
     createdAt: {
       type: Date,
